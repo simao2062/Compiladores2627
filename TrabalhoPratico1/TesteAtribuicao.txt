@@ -1,0 +1,12 @@
+program TesteAtribuicao;
+
+var
+  a, b: integer;
+  resultado: real;
+
+begin
+  a := 16;
+  b := 20;
+  resultado := (a / b) * 100;
+  writeln(resultado);
+end.

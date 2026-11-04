@@ -1,0 +1,25 @@
+program ExamCheck;
+
+var
+  score, maxScore : integer;
+  percentage : real;
+  hasPassed : boolean;
+
+begin
+  { Setup values (input) }
+  score := 16;
+  maxScore := 20;
+  
+  { Arithmetic expression to calculate percentage }
+  percentage := (score / maxScore) * 100;
+  
+  { Bool check if percentage is 50% or higher }
+  hasPassed := (percentage >= 50.0);
+  
+  { Output the results }
+  writeln('Score: ', score, ' out of ', maxScore);
+  writeln('Percentage: ', percentage:0:1, '%'); { Format to 1 decimal place }
+  writeln('Passed: ', hasPassed);
+  
+  readln; { Pause console }
+end.

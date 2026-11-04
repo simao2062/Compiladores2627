@@ -1,0 +1,14 @@
+program GreetingExample;
+
+var
+  userName: string; { Declares a variable to store the name }
+
+begin
+  writeln('What is your name?');
+  readln(userName); { Reads user input from the keyboard }
+  
+  writeln('Hello, ', userName, '! Welcome to Pascal.');
+  
+  writeln('Press Enter to exit...');
+  readln; { Pauses the console window }
+end.
