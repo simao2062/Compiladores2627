@@ -9,18 +9,12 @@
 
 
 //para testar só o Lexer (com o Alex instalado), imprime os tokens:
-alex Lexer.x -o Lexer.hs
-ghci Lexer.hs
+alex Lexer.x -o Lexer.hs && ghci Lexer.hs
 input <- readFile "Example1.txt"
 mapM_ print (alexScanTokens input)
 
 //para testar Lexer e Parser sem o Main(com o Alex/Happy instalados), imprime AST:
-alex Lexer.x -o Lexer.hs
-happy Parser.y -o Parser.hs
-ghci -ignore-dot-ghci Lexer.hs AST.hs Parser.hs -e 'readFile "Example1.txt" >>= print . Parser.parse . Lexer.alexScanTokens'
+alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghci -ignore-dot-ghci Lexer.hs AST.hs Parser.hs -e 'readFile "Example1.txt" >>= print . Parser.parse . Lexer.alexScanTokens'
 
 //para testar Main com Example1, imprime tokens e AST:
-alex Lexer.x -o Lexer.hs
-happy Parser.y -o Parser.hs
-ghc Main.hs -o teste
-./teste
+alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghc Main.hs -o teste && ./teste
