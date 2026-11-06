@@ -1,6 +1,6 @@
 module Main where
 
-import AST
+import ASTPrinter (prettyPrintAST)
 import Lexer (alexScanTokens)
 import Parser (parse)
 
@@ -10,7 +10,8 @@ main :: IO ()
 main = do
     source <- readFile "Example1.txt"   --decide qual ficheiro de teste usar
     let tokens = alexScanTokens source
-    putStrLn "Tokens:"
-    mapM_ print tokens                  --imprime a lista de tokens gerados pelo Lexer
+        ast = parse tokens
+    --putStrLn "Tokens:"
+    --mapM_ print tokens                  --imprime a lista de tokens gerados pelo Lexer
     putStrLn "\nAST:"
-    print (parse tokens)                --imprime a AST, usando os tokens gerados pelo Lexer e a função parse do Parser
+    putStr (prettyPrintAST ast)         --imprime a AST com indentação por níveis
