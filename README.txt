@@ -5,7 +5,7 @@
 - Anotar tudo neste README (breve descrição do projeto)
 
 
-!!!!! Maybe temos de alterar a forma como fazemos write, não é suposto usar o Show do AST
+-- Para dar print da AST, podemos pôr tabs para mostrar estrutura direito
 
 
 //para testar só o Lexer (com o Alex instalado), imprime os tokens:
