@@ -20,6 +20,11 @@ begin
   writeln('Score: ', score, ' out of ', maxScore);
   writeln('Percentage: ', percentage:0:1, '%'); { Format to 1 decimal place }
   writeln('Passed: ', hasPassed);
+
+  if percentage >= 50 then
+    writeln('Aprovado')
+  else
+    writeln('Reprovado');
   
   readln; { Pause console }
 end.

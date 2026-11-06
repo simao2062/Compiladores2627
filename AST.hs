@@ -21,6 +21,7 @@ data Stmt
     | WriteStmt [WriteArg]
     | ReadStmt [String]
     | ReadLineStmt
+    | IfStmt Expr [Stmt] (Maybe [Stmt])
     deriving (Show, Eq)
 
 data WriteArg

@@ -28,6 +28,9 @@ import Prelude
     readln     {KReadln}
     true       {KTrue}
     false      {KFalse}
+    if         {KIf}
+    then       {KThen}
+    else       {KElse}
 
     '+'        {Plus}
     '-'        {Minus}
@@ -49,7 +52,9 @@ import Prelude
 
 
 --preced e assoc dos operadores, declaraçao mais abaixo tem mais precedência
-%nonassoc '=' '<>' '<' '<=' '>' '>=' --preced de comparacoes menor do que preced de soma e mult, associatividade nao importa
+%nonassoc then
+%nonassoc else
+%nonassoc '=' '<>' '<' '<=' '>' '>='--preced de comparacoes menor do que preced de soma e mult, associatividade nao importa
 %left '+' '-' --left diz que sao associativos à esq
 %left '*' '/' --estes tẽm preced superior
 %%
@@ -114,6 +119,10 @@ Stmt
         { ReadLineStmt }
     | readln '(' IdentList ')'
         { ReadStmt $3 }
+    | if Expr then Stmt %prec then
+        { IfStmt $2 [$4] Nothing }
+    | if Expr then Stmt else Stmt
+        { IfStmt $2 [$4] (Just [$6]) }
 
 --lida com os argumentos do writeln(separados por vírgula), devolve uma lista de WriteArg
 WriteArgs
@@ -169,4 +178,3 @@ Expr
 parseError :: [Token] -> a
 parseError toks = error "parse error"  
 }
-

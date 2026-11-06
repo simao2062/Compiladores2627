@@ -77,6 +77,9 @@ data Token = Number Double --nº inteiro ou decimal
         | Division
         | LParen
         | RParen
+        | KIf
+        | KThen
+        | KElse
         deriving (Show, Eq)
 
 -- decide se a palavra é reservada ou um identificador
@@ -96,5 +99,8 @@ identifierToken s =
         "readln"  -> KReadln
         "true"    -> KTrue
         "false"   -> KFalse
+        "if"      -> KIf
+        "then"    -> KThen
+        "else"    -> KElse
         _         -> Identifier (map toLower s) --se nao for nenhuma das anteriores, devolve id com letras minusculas
 }
