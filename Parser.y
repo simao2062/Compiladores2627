@@ -31,6 +31,8 @@ import Prelude
     if         {KIf}
     then       {KThen}
     else       {KElse}
+    while      {KWhile}
+    do         {KDo}
 
     '+'        {Plus}
     '-'        {Minus}
@@ -52,6 +54,7 @@ import Prelude
 
 
 --preced e assoc dos operadores, declaraçao mais abaixo tem mais precedência
+%nonassoc do
 %nonassoc then
 %nonassoc else
 %nonassoc '=' '<>' '<' '<=' '>' '>='--preced de comparacoes menor do que preced de soma e mult, associatividade nao importa
@@ -123,6 +126,10 @@ Stmt
         { IfStmt $2 [$4] Nothing }
     | if Expr then Stmt else Stmt
         { IfStmt $2 [$4] (Just [$6]) }
+    | while Expr do Stmt
+        { WhileStmt $2 [$4] }
+    | begin StmtList end
+        { BlockStmt $2 }
 
 --lida com os argumentos do writeln(separados por vírgula), devolve uma lista de WriteArg
 WriteArgs

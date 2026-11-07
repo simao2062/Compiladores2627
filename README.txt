@@ -1,6 +1,6 @@
 Introdução:
     Para a criação deste compilador básico de Pascal, decidimos escolher a linguagem Haskell. Apesar de C ter mais controlo na memória e na implementação, achamos que Haskell seria mais simples
-de usar e funciona bem para a criação da Abstract Syntax Tree. Após selecionarmos a linguagem, fomos ver exemplos de códigos em Pascal (e vimos um pouco da Wikipédia) para perceber a linguagem.
+de usar e funciona bem para a criação da Abstract Syntax Tree. Após selecionarmos a linguagem, fomos ver exemplos de códigos em Pascal (e vimos um pouco da Wikipédia) para perceber a linguagem (semelhante a semântica).
 Algumas conclusões a que chegamos: é uma linguagem estruturada (código executa de forma linear), temos de ter cuidado com as suas palavras reservadas (program, var, begin, end, ...), bem como as
 expressões e instruções, respeitar ordem de operadores (* -> + -> <= -> else -> then), respeitar estrutura de blocos (begin/end, if/then/else). Após ver os exercícios da prática 2 como exemplo,
 passamos aos próximos passos:

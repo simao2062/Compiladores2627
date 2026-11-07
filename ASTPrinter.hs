@@ -41,6 +41,12 @@ statementTree statement =
                         [Tree "Else" (map statementTree statements)])
                       elseStatements
                 )
+        WhileStmt condition statements ->
+            Tree "WhileStmt"
+                ( [Tree "Condition" [expressionTree condition],
+                   Tree "Do" (map statementTree statements)])
+        BlockStmt statements ->
+            Tree "Block" (map statementTree statements)
 
 --trata dos argumentos WriteArgs para imprimir na árvore
 writeArgTree :: WriteArg -> Tree

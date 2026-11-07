@@ -80,6 +80,8 @@ data Token = Number Double --nº inteiro ou decimal
         | KIf
         | KThen
         | KElse
+        | KWhile
+        | KDo
         deriving (Show, Eq)
 
 -- decide se a palavra é reservada ou um identificador
@@ -102,5 +104,7 @@ identifierToken s =
         "if"      -> KIf
         "then"    -> KThen
         "else"    -> KElse
+        "while"   -> KWhile
+        "do"      -> KDo
         _         -> Identifier (map toLower s) --se nao for nenhuma das anteriores, devolve id com letras minusculas
 }

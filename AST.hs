@@ -22,6 +22,8 @@ data Stmt
     | ReadStmt [String]
     | ReadLineStmt
     | IfStmt Expr [Stmt] (Maybe [Stmt])
+    | WhileStmt Expr [Stmt]
+    | BlockStmt [Stmt]
     deriving (Show, Eq)
 
 data WriteArg
