@@ -54,7 +54,6 @@ import Prelude
 
 
 --preced e assoc dos operadores, declaraçao mais abaixo tem mais precedência
-%nonassoc do
 %nonassoc then
 %nonassoc else
 %nonassoc '=' '<>' '<' '<=' '>' '>='--preced de comparacoes menor do que preced de soma e mult, associatividade nao importa
