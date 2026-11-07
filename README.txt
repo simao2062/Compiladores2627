@@ -35,7 +35,19 @@ Criação do Main.hs:
 construtores da AST.
 
 Criação do Example1.txt e Example2.txt:
-    Exemplos simples de códigos que tiramos da Internet(e alteramos), para testar o que já tínhamos feito com o Main.hs .
+    Exemplos simples de códigos que tiramos da Internet(e alteramos), para testar o que já tínhamos feito com o Main.hs.
+
+Alterações no Print:
+    Para imprimir a árvore AST, inicialmente dávamos print numa linha contínua, mas depois criamos o ASTPrinter.hs para tratar de dar print na árvore por níveis, com Tabs dependendo dos 
+filhos de cada nó, dando-nos uma estrutura mais legível.
+
+Adição dos If/Then/Else e While:
+    Após testarmos o Compilador com estas primeiras funcionalidades(contas matemáticas, bools, writeln e readln), acrescentamos também a capacidade de interpretar os If e While:
+    - Acrecentamos Tokens no Lexer.x
+    - Pusemos regras de precedência dos "else", "then" e "do" e alteramos o Stmt no Parser.y
+    - Alteramos a data Stmt do AST.hs
+    - Acrescentamos os If e While no ASTPrinter para ele imprimir o conteúdo corretamente
+
 
 
 - Criar um Scanner/Lexer.x que lé código caracter a caracter e agrupa em tokens (IF, WHILE, READ, WRITE, op aritm)
@@ -60,3 +72,10 @@ alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghci -ignore-dot-ghci
 
 //para testar Main com Example1, imprime tokens e AST:
 alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghc Main.hs -o teste && ./teste
+
+
+
+
+
+
+--K indica que é uma palavra reservada (keyword)
