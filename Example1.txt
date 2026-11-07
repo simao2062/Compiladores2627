@@ -21,18 +21,15 @@ begin
   writeln('Percentage: ', percentage:0:1, '%'); { Format to 1 decimal place }
   writeln('Passed: ', hasPassed);
 
-  if percentage >= 50 then 
-    begin
-      writeln('Aprovado');
-      writeln('Aprovado')
-    end
+  if percentage >= 50 then
+    writeln('Aprovado')
   else
     writeln('Reprovado');
 
   while percentage >= 40 do
   begin
     writeln('percentage is higher!');
-    percentage := percentage - 1
+    percentage := percentage - 1;
   end;    
   
   readln; { Pause console }
