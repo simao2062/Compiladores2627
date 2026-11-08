@@ -10,7 +10,8 @@ type Env = [(String, String)]
 
 main :: IO ()
 main = do
-    source <- readFile "Example1.txt"   --decide qual ficheiro de teste usar
+    -- source <- readFile "Example1.txt"   --decide qual ficheiro de teste usar
+    source <- getContents
     let tokens = alexScanTokens source
         ast = parse tokens
         errors = checkUndeclaredVariables ast
