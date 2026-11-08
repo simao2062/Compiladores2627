@@ -61,20 +61,11 @@ import Prelude
 %nonassoc else
 %left or
 %left and
-%right not
+%right not     --o valor do not fica à direita do operador, assoc nao importa
 %nonassoc '=' '<>' '<' '<=' '>' '>='--preced de comparacoes menor do que preced de soma e mult, associatividade nao importa
 %left '+' '-' --left diz que sao associativos à esq
 %left '*' '/' --estes tẽm preced superior
 %%
-
---gramatica das express aritmeticas, cada regra indica como calcular o res da expr
--- Exp
---     : Exp '+' Exp    {$1 + $3}
---     | Exp '-' Exp    {$1 - $3}
---     | Exp '*' Exp    {$1 * $3}
---     | Exp '/' Exp    {$1 / $3}
---     | '(' Exp ')'    {$2} --devolve res da express entre parenteses
---     | num                {$1}
 
 --lê o nome do programa, as variáveis declaradas e a lista de statements, devolve uma estrutura de dados que representa o programa
 Program

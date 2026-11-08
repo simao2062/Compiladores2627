@@ -28,7 +28,7 @@ que nós criamos, como:
     - Stmt(para o assign, write e read)
     - WriteArg para dar print dos argumentos
     - Expr para as expressões
-    - BinOp para contas matemáticas(Add, Multiply...) e para booleans(LessThan, NotEqualTo...)
+    - BinOp para contas matemáticas(Add, Multiply...), as boolean expressions colocamos mais tarde
 
 Criação do Main.hs:
     Criamos um Main.hs que recebe um código de exemplo em Pascal(neste caso um ficheiro txt como Example1.txt) e depois chama o Lexer e o Parser para compilar o código e imprimir os 
@@ -42,11 +42,23 @@ Alterações no Print:
 filhos de cada nó, dando-nos uma estrutura mais legível.
 
 Adição dos If/Then/Else e While:
-    Após testarmos o Compilador com estas primeiras funcionalidades(contas matemáticas, bools, writeln e readln), acrescentamos também a capacidade de interpretar os If e While:
+    Após testarmos o Compilador com estas primeiras funcionalidades(contas matemáticas, writeln e readln), acrescentamos também a capacidade de interpretar os If e While:
     - Acrecentamos Tokens no Lexer.x
     - Pusemos regras de precedência dos "else", "then" e "do" e alteramos o Stmt no Parser.y
     - Alteramos a data Stmt do AST.hs
     - Acrescentamos os If e While no ASTPrinter para ele imprimir o conteúdo corretamente
+
+Adição das expressões Booleanas:
+    Mais tarde acrescentamos funcionalidade para expressões booleanas(And, Or e Not), fazendo as seguintes alterações:
+    - Criação dos Tokens no Lexer.x e Expressões no Parser.y
+    - Acrescentamos construtores na AST.hs para booleans(And, Or, Not)
+    - Mudamos o ASTPrinter.hs e o Semantics.hs para também usar UnaryExpr (para Not) e BooleanExpr (para And e Or)
+
+Alterações no Main.hs:
+    Agora o Main.hs usa o getContents em vez de readFile para podermos escrever no terminal o código logo ao testar o Compilador, em vez de dar feed de um script já feito.
+
+Testes finais:
+    Testamos vários códigos diferentes para ver alguns casos mais complicados, como ifs dentro de ifs, dois whiles seguidos, not(a and b) e alguns exemplos com assigns.
 
 
 
@@ -72,8 +84,6 @@ alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghci -ignore-dot-ghci
 
 //para testar Main com Example1, imprime tokens e AST:
 alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghc Main.hs -o teste && ./teste < Example1.txt
-
-
 
 
 
