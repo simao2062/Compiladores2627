@@ -1,0 +1,28 @@
+program TesteTiposExpressoes;
+
+var
+  inteiro, resultado: integer;
+  valorReal: real;
+  ativo: boolean;
+  inicial: char;
+  mensagem: string;
+
+begin
+  { Declaracoes, atribuicoes e expressoes aritmeticas }
+  inteiro := 8;
+  resultado := (inteiro + 2) * 3 / 2 - 1;
+  valorReal := 12.5;
+  ativo := true;
+  inicial := 'A';
+  mensagem := 'Teste de string';
+
+  { Escrita de valores e formatacao numerica }
+  writeln('Resultado: ', resultado);
+  writeln('Real: ', valorReal:6:2);
+  writeln(inicial, ' - ', mensagem);
+
+  { Literais booleanos e operadores logicos }
+  writeln((resultado = 14) and ativo);
+  writeln((resultado <> 0) or false);
+  writeln(not false);
+end.

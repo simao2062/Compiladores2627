@@ -1,0 +1,45 @@
+program TesteControloFluxo;
+
+var
+  i, limite: integer;
+  continuar: boolean;
+  nome: string;
+
+begin
+  writeln('Introduza o nome:');
+  readln(nome);
+  writeln('Introduza i e limite:');
+  readln(i, limite);
+
+  continuar := true;
+
+  if i < limite then
+    writeln(nome, ': i e menor que o limite')
+  else
+    writeln(nome, ': i nao e menor que o limite');
+
+  if i <= limite then
+  begin
+    writeln('i e menor ou igual ao limite');
+  end;
+
+  if i > limite then
+    writeln('i e maior que o limite');
+
+  if i >= limite then
+    writeln('i e maior ou igual ao limite');
+
+  while (i < limite) and continuar do
+  begin
+    i := i + 1;
+    if i = limite then
+      continuar := false
+    else
+      writeln('i = ', i);
+  end;
+
+  if not continuar or (i <> limite) then
+    writeln('A condicao final e verdadeira');
+
+  readln;
+end.
