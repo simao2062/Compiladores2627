@@ -18,7 +18,7 @@ $white+    ; --ignorar carateres "brancos"(espaços, tabulaçoes e mud de linha)
 
 @number { \s -> Number (read s)} --reconhece nºs e converte para Double
 \{ [^\}]* \};                    --ignora os comentários {...}
-@string     { \s -> StringLiteral (init (tail s)) }
+@string     { \s -> StringLiteral (drop 1 (take (length s - 1) s) }
 @identifier { identifierToken }  --envia todas as palavras que não são palavras reservadas para a função identifierToken
 
 -- reconhece operadores aritméticos, parenteses, indentificadores e simbolos matemáticos
