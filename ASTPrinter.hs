@@ -74,6 +74,8 @@ expressionTree expression =
         BinaryExpr operator left right ->
             Tree ("BinaryExpr " ++ show operator)
                 [expressionTree left, expressionTree right]
+        UnaryExpr operator value ->
+            Tree ("UnaryExpr " ++ show operator) [expressionTree value]
 
 
 --funções auxiliares para mostrar a árvore em uma lista de strings

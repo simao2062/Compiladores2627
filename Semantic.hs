@@ -51,6 +51,8 @@ checkExpr declared expression =
             checkName declared "expression" name
         BinaryExpr _ left right ->
             checkExpr declared left ++ checkExpr declared right
+        UnaryExpr _ operand ->
+            checkExpr declared operand
 
 checkName :: [String] -> String -> String -> [String]
 checkName declared context name

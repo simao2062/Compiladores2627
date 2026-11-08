@@ -33,6 +33,9 @@ import Prelude
     else       {KElse}
     while      {KWhile}
     do         {KDo}
+    and        {KAnd}
+    or         {KOr}
+    not        {KNot}
 
     '+'        {Plus}
     '-'        {Minus}
@@ -56,6 +59,9 @@ import Prelude
 --preced e assoc dos operadores, declaraçao mais abaixo tem mais precedência
 %nonassoc then
 %nonassoc else
+%left or
+%left and
+%right not
 %nonassoc '=' '<>' '<' '<=' '>' '>='--preced de comparacoes menor do que preced de soma e mult, associatividade nao importa
 %left '+' '-' --left diz que sao associativos à esq
 %left '*' '/' --estes tẽm preced superior
@@ -166,6 +172,12 @@ Expr
         { BinaryExpr GreaterThan $1 $3 }
     | Expr '>=' Expr
         { BinaryExpr GreaterEqualTo $1 $3 }
+    | Expr and Expr
+        { BinaryExpr And $1 $3 }
+    | Expr or Expr
+        { BinaryExpr Or $1 $3 }
+    | not Expr
+        { UnaryExpr Not $2 }
     | '(' Expr ')'
         { $2 }
     | num

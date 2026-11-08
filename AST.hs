@@ -37,6 +37,7 @@ data Expr
     | BooleanExpr Bool
     | VariableExpr String
     | BinaryExpr BinOp Expr Expr
+    | UnaryExpr UnOp Expr
     deriving (Show, Eq)
 
 data BinOp
@@ -45,4 +46,8 @@ data BinOp
     | EqualTo | NotEqualTo
     | LessThan | LessEqualTo
     | GreaterThan | GreaterEqualTo
+    | And | Or
+    deriving (Show, Eq)
+
+data UnOp = Not
     deriving (Show, Eq)
