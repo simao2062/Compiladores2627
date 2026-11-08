@@ -1,4 +1,4 @@
-module Semantic (checkUndeclaredVariables) where
+module ErrorCheck (checkUndeclaredVariables) where
 
 import AST
 

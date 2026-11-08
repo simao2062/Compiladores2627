@@ -85,6 +85,12 @@ alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghci -ignore-dot-ghci
 //para testar Main com Example1, imprime tokens e AST:
 alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghc Main.hs -o teste && ./teste < Example1.txt
 
+//para testar Main com código escrito no Terminal:
+alex Lexer.x -o Lexer.hs && happy Parser.y -o Parser.hs && ghc Main.hs -o teste
+./teste
+(escrever código aqui e terminar com CTRL+D)
+
+
 
 
 

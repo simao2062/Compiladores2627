@@ -58,7 +58,7 @@ data Token = Number Double --nº inteiro ou decimal
         | LessEqual
         | Greater
         | GreaterEqual
-        | KProgram
+        | KProgram         --palavras reservadas do Pascal(keywords)
         | KVar
         | KBegin
         | KEnd
